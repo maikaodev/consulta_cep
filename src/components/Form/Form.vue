@@ -6,6 +6,7 @@
         type="number"
         placeholder="Ex.: 00000-000"
         v-model:modelValue="cep"
+        required
       />
       <InputButton
         class="container__form__submit"
@@ -56,27 +57,41 @@ export default {
     };
   },
   methods: {
-    getCEP() {
+    async getCEP() {
+      if (this.cep.length < 8) {
+        //TODO: Lançar a modal
+        alert("Informe o cep corretamente!");
+        return;
+      }
+
       const url = `https://viacep.com.br/ws/${this.cep}/json/`;
 
-      if (this.cep < 8) {
-        alert("CEP invalid");
-      } else {
-        try {
-          fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-              console.log(data);
-              this.$cep = data.cep;
-              this.logradouro = data.logradouro;
-              this.localidade = data.localidade;
-              this.uf = data.uf;
-              this.mostrar = true;
-            });
-        } catch (error) {
-          console.log(error);
-        }
-      }
+      await fetch(url)
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Aconteceu um erro inesperado!");
+          }
+        })
+        .then((data) => {
+          if (data.erro === "true") {
+            //TODO: Lançar a modal
+            throw new Error("CEP inexistente!");
+          }
+          this.$cep = data.cep;
+          this.logradouro = data.logradouro;
+          this.localidade = data.localidade;
+          this.uf = data.uf;
+          this.mostrar = true;
+        })
+        .catch((error) => {
+          if (error) {
+            //TODO: Lançar a modal
+            alert("CEP inválido!");
+          }
+        });
+
       this.cep = "";
     },
   },
