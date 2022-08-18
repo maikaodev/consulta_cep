@@ -1,0 +1,11 @@
+@use '../src/assets/sass/variables'
+@use '../src/assets/sass/mixins'
+
+.modal
+  @include mixins.container-flex
+  background-color: variables.$bg-color-third
+  color: variables.$third-color
+  width: 300px
+  padding: 16px 24px
+  margin-bottom: 16px
+  border-radius: 4px

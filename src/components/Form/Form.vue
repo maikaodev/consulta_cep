@@ -1,5 +1,6 @@
 <template>
   <main class="container">
+    <Modal v-show="mostrarModal"> {{ error }} </Modal>
     <form @submit.prevent class="container__form">
       <Input
         class="container__form__text"
@@ -43,9 +44,10 @@
 <script>
 import Input from "../Input/Input.vue";
 import InputButton from "../InputButton/InputButton.vue";
+import Modal from "../Modal/Modal.vue";
 export default {
   name: "Form",
-  components: { Input, InputButton },
+  components: { Input, InputButton, Modal },
   data() {
     return {
       mostrar: false,
@@ -54,16 +56,24 @@ export default {
       logradouro: "",
       localidade: "",
       uf: "",
+      error: "",
+      mostrarModal: false,
     };
   },
   methods: {
     async getCEP() {
-      if (this.cep.length < 8) {
-        //TODO: Lançar a modal
-        alert("Informe o cep corretamente!");
-        return;
+      if (this.mostrar) {
+        this.mostrar = false;
       }
 
+      if (this.cep.length < 8) {
+        setTimeout(() => {
+          this.mostrarModal = false;
+        }, 2 * 1000);
+        this.error = "Digite um CEP válido!";
+        this.mostrarModal = true;
+        return;
+      }
       const url = `https://viacep.com.br/ws/${this.cep}/json/`;
 
       await fetch(url)
@@ -75,9 +85,8 @@ export default {
           }
         })
         .then((data) => {
-          if (data.erro === "true") {
-            //TODO: Lançar a modal
-            throw new Error("CEP inexistente!");
+          if (data.erro) {
+            throw new Error();
           }
           this.$cep = data.cep;
           this.logradouro = data.logradouro;
@@ -87,8 +96,11 @@ export default {
         })
         .catch((error) => {
           if (error) {
-            //TODO: Lançar a modal
-            alert("CEP inválido!");
+            setTimeout(() => {
+              this.mostrarModal = false;
+            }, 2 * 1000);
+            this.error = "Digite um CEP válido!";
+            this.mostrarModal = true;
           }
         });
 
