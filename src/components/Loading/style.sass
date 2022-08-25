@@ -1,0 +1,18 @@
+@use '../src/assets/sass/variables'
+@use '../src/assets/sass/mixins'
+
+
+#background
+  @include mixins.container-flex
+  position: absolute
+  background: transparent
+  backdrop-filter: blur(10px)
+  width:100vw
+  height: 100vh
+
+
+img
+  width:10vw
+  position: absolute
+  z-index: 999999
+  

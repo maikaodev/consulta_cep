@@ -1,6 +1,7 @@
 <template>
   <main class="container">
     <Modal v-show="mostrarModal"> {{ error }} </Modal>
+    <Loading v-show="loading"></Loading>
     <form @submit.prevent class="container__form">
       <Input
         class="container__form__text"
@@ -43,20 +44,23 @@
 import Input from "../Input/Input.vue";
 import InputButton from "../InputButton/InputButton.vue";
 import Modal from "../Modal/Modal.vue";
+import Loading from "../Loading/Loading.vue";
 export default {
   name: "Form",
-  components: { Input, InputButton, Modal },
+  components: { Input, InputButton, Modal, Loading },
   data() {
     return {
       mostrar: false,
       data: [],
       cep: "",
       error: "",
+      loading: false,
       mostrarModal: false,
     };
   },
   methods: {
     async getCEP() {
+      this.loading = true;
       if (this.cep.length < 8 || this.cep.length > 8) {
         setTimeout(() => {
           this.mostrarModal = false;
@@ -82,8 +86,10 @@ export default {
           }
         })
         .then((data) => {
+          this.data = [];
           this.data.push(data);
           this.mostrar = true;
+          this.loading = false;
         })
         .catch((error) => {
           if (error) {
