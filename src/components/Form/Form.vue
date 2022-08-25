@@ -17,30 +17,28 @@
       />
     </form>
     <section v-show="mostrar" class="container__result">
-      <ul class="container__result__list">
+      <ul v-for="data in data" class="container__result__list">
         <li class="container__result__list__item">
           CEP:
-          <span>{{ $cep }}</span>
+          <span>{{ data.cep }}</span>
         </li>
         <li class="container__result__list__item">
           Estado:
-          <span>{{ uf }}</span>
+          <span>{{ data.uf }}</span>
         </li>
         <li class="container__result__list__item">
           Cidade:
-          <span>{{ localidade }}</span>
+          <span>{{ data.localidade }}</span>
         </li>
         <li class="container__result__list__item">
           Logradouro:
-          <span>{{ logradouro }} </span>
+          <span>{{ data.logradouro }} </span>
         </li>
       </ul>
     </section>
   </main>
 </template>
 
-<!-- LINK : https://viacep.com.br/ws/{{CEP}}/json/-->
-<!-- CEP : 57073541 -->
 <script>
 import Input from "../Input/Input.vue";
 import InputButton from "../InputButton/InputButton.vue";
@@ -51,30 +49,29 @@ export default {
   data() {
     return {
       mostrar: false,
+      data: [],
       cep: "",
-      $cep: "",
-      logradouro: "",
-      localidade: "",
-      uf: "",
       error: "",
       mostrarModal: false,
     };
   },
   methods: {
     async getCEP() {
-      if (this.mostrar) {
-        this.mostrar = false;
-      }
-
-      if (this.cep.length < 8) {
+      if (this.cep.length < 8 || this.cep.length > 8) {
         setTimeout(() => {
           this.mostrarModal = false;
         }, 2 * 1000);
         this.error = "Digite um CEP válido!";
         this.mostrarModal = true;
+        this.cep = "";
         return;
       }
-      const url = `https://viacep.com.br/ws/${this.cep}/json/`;
+
+      if (this.mostrar) {
+        this.mostrar = false;
+      }
+
+      const url = `https://api-consulta-cep.herokuapp.com/cep/${this.cep}`;
 
       await fetch(url)
         .then((response) => {
@@ -85,13 +82,7 @@ export default {
           }
         })
         .then((data) => {
-          if (data.erro) {
-            throw new Error();
-          }
-          this.$cep = data.cep;
-          this.logradouro = data.logradouro;
-          this.localidade = data.localidade;
-          this.uf = data.uf;
+          this.data.push(data);
           this.mostrar = true;
         })
         .catch((error) => {
