@@ -5,8 +5,9 @@
     <form @submit.prevent class="container__form">
       <Input
         class="container__form__text"
-        type="number"
+        type="tel"
         placeholder="Ex.: 00000-000"
+        v-mask="'#####-###'"
         v-model:modelValue="cep"
         required
       />
@@ -41,18 +42,21 @@
 </template>
 
 <script>
+import { mask } from "vue-the-mask";
 import Input from "../Input/Input.vue";
 import InputButton from "../InputButton/InputButton.vue";
 import Modal from "../Modal/Modal.vue";
 import Loading from "../Loading/Loading.vue";
 export default {
   name: "Form",
+  directives: { mask },
   components: { Input, InputButton, Modal, Loading },
   data() {
     return {
       mostrar: false,
       data: [],
       cep: "",
+      _cep: "",
       error: "",
       loading: false,
       mostrarModal: false,
@@ -60,8 +64,9 @@ export default {
   },
   methods: {
     async getCEP() {
-      this.loading = true;
-      if (this.cep.length < 8 || this.cep.length > 8) {
+      this._cep = this.cep.replace("-", "");
+
+      if (this._cep.length < 8 || this._cep.length > 8) {
         setTimeout(() => {
           this.mostrarModal = false;
         }, 2 * 1000);
@@ -72,10 +77,12 @@ export default {
       }
 
       if (this.mostrar) {
+        this.data = [];
         this.mostrar = false;
       }
+      this.loading = true;
 
-      const url = `https://api-consulta-cep.herokuapp.com/cep/${this.cep}`;
+      const url = `https://api-consulta-cep.herokuapp.com/cep/${this._cep}`;
 
       await fetch(url)
         .then((response) => {
@@ -86,21 +93,19 @@ export default {
           }
         })
         .then((data) => {
-          this.data = [];
           this.data.push(data);
           this.mostrar = true;
-          this.loading = false;
         })
         .catch((error) => {
           if (error) {
             setTimeout(() => {
               this.mostrarModal = false;
             }, 2 * 1000);
-            this.error = "Digite um CEP válido!";
+            this.error = error.message || "Digite um CEP válido!";
             this.mostrarModal = true;
           }
         });
-
+      this.loading = false;
       this.cep = "";
     },
   },
