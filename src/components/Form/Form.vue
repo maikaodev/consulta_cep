@@ -89,7 +89,7 @@ export default {
           if (response.ok) {
             return response.json();
           } else {
-            throw new Error("Aconteceu um erro inesperado!");
+            throw new Error();
           }
         })
         .then((data) => {
