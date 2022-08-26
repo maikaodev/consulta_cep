@@ -2,5 +2,8 @@
 
 @mixin container-flex
   display: flex
-  align-items: center
   justify-content: center
+
+@mixin tablets
+  @media(min-width: 768px)
+    @content

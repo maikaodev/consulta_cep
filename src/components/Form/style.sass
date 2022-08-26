@@ -3,9 +3,11 @@
 
 .container
   @include mixins.container-flex
-  width: 100%
-  height: 100%
   flex-direction: column
+  height:100%
+  @include mixins.tablets
+    align-items: center    
+
 
   &__form
     @include mixins.container-flex
@@ -14,6 +16,10 @@
     border: 2px solid variables.$secondary-color
     padding: 32px 0
     margin-bottom: 16px
+    @include mixins.tablets
+     width: variables.$tablet-width
+      
+
     &__text
       border: 3px solid variables.$border-color-input
       outline-color: variables.$border-color-input
@@ -33,6 +39,8 @@
     border: 2px solid variables.$secondary-color
     width: variables.$container-width
     padding: 24px 0
+    @include mixins.tablets
+     width: variables.$tablet-width
 
     &__list
       list-style: none
