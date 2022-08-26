@@ -3,20 +3,24 @@
     <Modal v-show="mostrarModal"> {{ error }} </Modal>
     <Loading v-show="loading"></Loading>
     <form @submit.prevent class="container__form">
-      <Input
-        class="container__form__text"
-        type="tel"
-        placeholder="Ex.: 00000-000"
-        v-mask="'#####-###'"
-        v-model:modelValue="cep"
-        required
-      />
-      <InputButton
-        class="container__form__submit"
-        type="submit"
-        value="Buscar CEP"
-        @click="getCEP()"
-      />
+      <label>
+        <Input
+          class="container__form__text"
+          type="tel"
+          placeholder="Ex.: 00000-000"
+          v-mask="'#####-###'"
+          v-model:modelValue="cep"
+          required
+        />
+      </label>
+      <label>
+        <InputButton
+          class="container__form__submit"
+          type="submit"
+          value="Buscar CEP"
+          @click="getCEP()"
+        />
+      </label>
     </form>
     <section v-show="mostrar" class="container__result">
       <ul v-for="data in data" class="container__result__list">
