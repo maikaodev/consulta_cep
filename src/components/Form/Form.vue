@@ -2,46 +2,51 @@
   <main class="container">
     <Modal v-show="mostrarModal"> {{ error }} </Modal>
     <Loading v-show="loading"></Loading>
-    <form @submit.prevent class="container__form">
-      <label>
-        <Input
-          class="container__form__text"
-          type="tel"
-          placeholder="Ex.: 00000-000"
-          v-mask="'#####-###'"
-          v-model:modelValue="cep"
-          required
-        />
-      </label>
-      <label>
-        <InputButton
-          class="container__form__submit"
-          type="submit"
-          value="Buscar CEP"
-          @click="getCEP()"
-        />
-      </label>
-    </form>
-    <section v-show="mostrar" class="container__result">
-      <ul v-for="data in data" class="container__result__list">
-        <li class="container__result__list__item">
-          CEP:
-          <span>{{ data.cep }}</span>
-        </li>
-        <li class="container__result__list__item">
-          Estado:
-          <span>{{ data.uf }}</span>
-        </li>
-        <li class="container__result__list__item">
-          Cidade:
-          <span>{{ data.localidade }}</span>
-        </li>
-        <li class="container__result__list__item">
-          Logradouro:
-          <span>{{ data.logradouro }} </span>
-        </li>
-      </ul>
+    <section class="container__content">
+      <form @submit.prevent class="container__form">
+        <label>
+          <Input
+            class="container__form__text"
+            type="tel"
+            placeholder="Ex.: 00000-000"
+            v-mask="'#####-###'"
+            v-model:modelValue="cep"
+            required
+          />
+        </label>
+        <label>
+          <InputButton
+            class="container__form__submit"
+            type="submit"
+            value="Buscar CEP"
+            @click="getCEP()"
+          />
+        </label>
+      </form>
+      <section v-show="mostrar" class="container__result">
+        <ul v-for="data in data" class="container__result__list">
+          <li class="container__result__list__item">
+            CEP:
+            <span>{{ data.cep }}</span>
+          </li>
+          <li class="container__result__list__item">
+            Estado:
+            <span>{{ data.uf }}</span>
+          </li>
+          <li class="container__result__list__item">
+            Cidade:
+            <span>{{ data.localidade }}</span>
+          </li>
+          <li class="container__result__list__item">
+            Logradouro:
+            <span>{{ data.logradouro }} </span>
+          </li>
+        </ul>
+      </section>
     </section>
+    <footer class="container__socialmedia">
+      <SocialMedia />
+    </footer>
   </main>
 </template>
 
@@ -51,10 +56,11 @@ import Input from "../Input/Input.vue";
 import InputButton from "../InputButton/InputButton.vue";
 import Modal from "../Modal/Modal.vue";
 import Loading from "../Loading/Loading.vue";
+import SocialMedia from "../SocialMedia/SocialMedia.vue";
 export default {
   name: "Form",
   directives: { mask },
-  components: { Input, InputButton, Modal, Loading },
+  components: { Input, InputButton, Modal, Loading, SocialMedia },
   data() {
     return {
       mostrar: false,
