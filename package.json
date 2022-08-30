@@ -13,6 +13,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
     "@fortawesome/vue-fontawesome": "latest-3",
     "vue": "^3.2.37",
+    "vue-router": "4",
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
