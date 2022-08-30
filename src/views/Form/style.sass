@@ -1,0 +1,62 @@
+@use '../src/assets/sass/variables'
+@use '../src/assets/sass/mixins'
+
+.container
+  @include mixins.container-flex
+  flex-direction: column
+  align-items: center
+  height:100%
+
+  @include mixins.tablets
+    align-items: center  
+
+  &__content
+    height: 350px
+
+  &__form
+    @include mixins.container-flex
+    background-color: variables.$bg-color-secondary
+    width: variables.$container-width
+    border: 2px solid variables.$secondary-color
+    padding: 32px 0
+    margin-bottom: 16px
+    @include mixins.tablets
+     width: variables.$tablet-width
+
+    &__text
+      border: 3px solid variables.$border-color-input
+      outline-color: variables.$border-color-input
+      border-radius: 4px
+      margin-right: 6px
+      padding: 10px
+
+    &__submit
+      background-color: variables.$bg-color-third
+      color: variables.$third-color
+      font-weight: bold
+      border: none
+      padding: 12px
+
+  &__result
+    background-color: variables.$bg-color-secondary
+    border: 2px solid variables.$secondary-color
+    width: variables.$container-width
+    padding: 24px 0
+    @include mixins.tablets
+     width: variables.$tablet-width
+
+    &__list
+      list-style: none
+      margin-left: 24px
+
+      &__item
+        margin-bottom: 8px
+        font-weight: 800
+        color: variables.$primary-color
+        span
+          font-weight: 300
+  &__socialmedia
+    position: absolute
+    bottom: 0
+    margin-bottom: 24px
+ 
