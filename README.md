@@ -9,3 +9,5 @@
 - [x] - Desabilitar o botão para evitar mais de uma requisição;
 - [x] - Adicionar efeito visual para quando for completando o cep - ;
 - [x] - Retirar a entrada de 'e' '+' '-' do input;
+- [ ] - Adicionar e salvar o cep pela URL;
+- [ ] - Testes unitários.

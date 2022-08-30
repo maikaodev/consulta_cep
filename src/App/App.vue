@@ -1,12 +1,9 @@
 <template>
-  <Form />
+  <router-view></router-view>
 </template>
 
 <script>
-import Form from "@/views/Form/Form.vue";
-export default {
-  components: { Form },
-};
+export default {};
 </script>
 
 <style src="./style.sass" lang="sass" />

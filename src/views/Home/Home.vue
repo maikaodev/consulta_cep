@@ -52,13 +52,14 @@
 
 <script>
 import { mask } from "vue-the-mask";
-import Input from "../Input/Input.vue";
-import InputButton from "../InputButton/InputButton.vue";
-import Modal from "../Modal/Modal.vue";
-import Loading from "../Loading/Loading.vue";
-import SocialMedia from "../SocialMedia/SocialMedia.vue";
+import Input from "@/components/Input/Input.vue";
+import InputButton from "@/components/InputButton/InputButton.vue";
+import Modal from "@/components/Modal/Modal.vue";
+import Loading from "@/components/Loading/Loading.vue";
+import SocialMedia from "@/components/SocialMedia/SocialMedia.vue";
+
 export default {
-  name: "Form",
+  name: "Home",
   directives: { mask },
   components: { Input, InputButton, Modal, Loading, SocialMedia },
   data() {
@@ -90,7 +91,13 @@ export default {
         this.data = [];
         this.mostrar = false;
       }
+
+      //Ativando a tela de carregamento
       this.loading = true;
+
+      //Salvando o cep na rota
+      console.log(this.$router);
+      this.$router.push({ path: "", query: { cep: this._cep } });
 
       const url = `https://api-consulta-cep.herokuapp.com/cep/${this._cep}`;
 
@@ -115,9 +122,20 @@ export default {
             this.mostrarModal = true;
           }
         });
+
       this.loading = false;
       this.cep = "";
     },
+    checkingParams() {
+      const paramCep = this.$router.currentRoute.value.query.cep;
+      if (paramCep) {
+        this.cep = paramCep;
+        this.getCEP();
+      }
+    },
+  },
+  created() {
+    this.checkingParams();
   },
 };
 </script>
