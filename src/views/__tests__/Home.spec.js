@@ -42,6 +42,7 @@ describe("Home", () => {
     expect(inputText.value).toBe("");
 
     await fireEvent.update(inputText, "57015040");
+    expect(inputText.value).toBe("57015-040");
     expect(inputText.value).toHaveLength(9);
   });
 });
