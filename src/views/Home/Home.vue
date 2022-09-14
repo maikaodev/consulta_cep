@@ -3,7 +3,7 @@
     <Modal v-show="mostrarModal"> {{ error }} </Modal>
     <Loading v-show="loading"></Loading>
     <section class="container__content">
-      <form @submit.prevent class="container__form">
+      <form data-testid="form" @submit.prevent class="container__form">
         <label>
           <Input
             class="container__form__text"
@@ -11,16 +11,18 @@
             placeholder="Ex.: 00000-000"
             v-mask="'#####-###'"
             v-model:modelValue="cep"
+            data-testid="input-text-zip-code"
             required
           />
         </label>
         <label>
-          <InputButton
+          <button
             class="container__form__submit"
-            type="submit"
-            value="Buscar CEP"
+            data-testid="submit"
             @click="getCEP()"
-          />
+          >
+            Buscar CEP
+          </button>
         </label>
       </form>
       <section v-show="mostrar" class="container__result">
@@ -75,31 +77,48 @@ export default {
   },
   methods: {
     async getCEP() {
+      /**
+       * Retiro o - do cep e pego somente os números.
+       */
       this._cep = this.cep.replace("-", "");
+      /**
+       * Verifico o tamanho do cep para enviar um cep válido.
+       * Caso não seja válido é avisado ao usuário e a req não é feita.
+       */
 
       if (this._cep.length < 8 || this._cep.length > 8) {
         setTimeout(() => {
           this.mostrarModal = false;
         }, 2 * 1000);
+
         this.error = "Digite um CEP válido!";
         this.mostrarModal = true;
         this.cep = "";
         return;
       }
-
+      /**
+       * Validando caso já tenha feito uma requisição anteriormente eu reseto os dados.
+       */
       if (this.mostrar) {
         this.data = [];
         this.mostrar = false;
       }
 
-      //Ativando a tela de carregamento
+      /**
+       *Ativando a tela de carregamento.
+       */
       this.loading = true;
 
       //Salvando o cep na rota
-      console.log(this.$router);
       this.$router.push({ path: "", query: { cep: this._cep } });
 
       const url = `https://api-consulta-cep.herokuapp.com/cep/${this._cep}`;
+      /**
+       * Pegando os dados e fazendo a requisição através do Fetch, função do próprio JavaScript.
+       * 1° Verifico o status da requisição.
+       * 2° Salvo os dados no array para fazer o loop e mostrar os dados.
+       * 3° Caso ocorra qualquer tipo de erro na requisição e lançado isso se forma visível para o usuário.
+       */
 
       await fetch(url)
         .then((response) => {
@@ -123,10 +142,16 @@ export default {
           }
         });
 
+      /**
+       * Retiro a tela de carregamento e apago o CEP que está dentro do input.
+       */
       this.loading = false;
       this.cep = "";
     },
     checkingParams() {
+      /**
+       * Essa função verifica se há parâmentros em rota, caso tenha é feito requisição.
+       */
       const paramCep = this.$router.currentRoute.value.query.cep;
       if (paramCep) {
         this.cep = paramCep;
@@ -135,6 +160,9 @@ export default {
     },
   },
   created() {
+    /**
+     * Chamo a função através do hook created.
+     */
     this.checkingParams();
   },
 };
