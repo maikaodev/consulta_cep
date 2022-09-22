@@ -1,6 +1,9 @@
+//Component
+import Home from "../Home/Home.vue";
+
+//Libraries
 import { createRouter, createWebHistory } from "vue-router";
 import { render, fireEvent } from "@testing-library/vue";
-import Home from "../Home/Home.vue";
 import { describe, expect } from "vitest";
 
 describe("Home", () => {
@@ -21,7 +24,7 @@ describe("Home", () => {
         plugins: [router],
       },
     });
-    //Getting the elements
+    //Pegando os elementos:
     const form = getByTestId("form");
     const input = getByTestId("input-text-zip-code");
     const button = getByTestId("submit");
@@ -41,9 +44,10 @@ describe("Home", () => {
         plugins: [router],
       },
     });
+    //Pegando o elemento:
     const inputText = getByTestId("input-text-zip-code");
 
-    //Events
+    //Eventos
     await fireEvent.update(inputText, "");
     await fireEvent.update(inputText, "aaaaabbccdd");
     await fireEvent.update(inputText, "aaabb123132ccdd");
@@ -55,6 +59,7 @@ describe("Home", () => {
     expect(inputText).not.toHaveValue("aaabb123132ccdd");
     expect(inputText).not.toHaveValue("????@@@@$$%%%");
 
+    //Evento
     await fireEvent.update(inputText, "57015040");
     expect(inputText).toHaveValue("57015-040");
     expect(inputText).not.toHaveValue("5007015-040");
