@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
@@ -18,12 +19,15 @@
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^8.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/vue": "^6.6.1",
     "@vitejs/plugin-vue": "^3.0.3",
+    "cypress": "^10.8.0",
     "jsdom": "^20.0.0",
     "sass": "^1.54.4",
     "vite": "^3.0.7",
     "vitest": "^0.23.1"
-  }
+  },
+  "include": ["node_modules/cypress", "./cypress/**/*.js"]
 }
