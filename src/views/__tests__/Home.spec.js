@@ -55,14 +55,12 @@ describe("Home", () => {
 
     //assert
     expect(inputText).toHaveValue("");
-    expect(inputText).not.toHaveValue("aaaaabbccdd");
-    expect(inputText).not.toHaveValue("aaabb123132ccdd");
-    expect(inputText).not.toHaveValue("????@@@@$$%%%");
 
     //Evento
     await fireEvent.update(inputText, "57015040");
+
+    //assert
     expect(inputText).toHaveValue("57015-040");
-    expect(inputText).not.toHaveValue("5007015-040");
     expect(inputText.value).toHaveLength(9);
   });
 });
