@@ -17,7 +17,7 @@ Além disso é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ### Rodando o Front End
 
-´´´bash
+```bash
 # Clone este repositório
 $ git clone <https://github.com/maikaodev/consulta_cep.git>
 
@@ -31,7 +31,7 @@ $ yarn install
 $ yarn dev
 
 # E o servidor iniciará: - acesse <http://127.0.0.1:5173/>
-´´´
+```
 
 # Deploy
 
