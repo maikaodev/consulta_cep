@@ -37,15 +37,11 @@ describe("Home", () => {
     );
   });
   it("Verificando as redes sociais", () => {
-    cy.findByTestId("linkedin-maikaodev").should(
-      "have.prop",
-      "href",
-      "https://www.linkedin.com/in/maikaodev/"
-    );
-    cy.findByTestId("github-maikaodev").should(
-      "have.prop",
-      "href",
-      "https://github.com/maikaodev"
-    );
+    cy.findByTestId("linkedin-maikaodev")
+      .should("have.prop", "href", "https://www.linkedin.com/in/maikaodev/")
+      .and("not.be.disabled");
+    cy.findByTestId("github-maikaodev")
+      .should("have.prop", "href", "https://github.com/maikaodev")
+      .and("not.be.disabled");
   });
 });
