@@ -43,7 +43,7 @@ https://www.linkedin.com/in/maikaodev/
 
 ### Descrição
 
-- Projeto criado para consulta de endereço através do CEP. 
+- Projeto criado para consultar de endereço através do CEP. 
 
 ### Aprendizados 
 
@@ -57,6 +57,7 @@ https://www.linkedin.com/in/maikaodev/
  - [Vite](https://vitejs.dev/);
  - [Vitest](https://vitest.dev/);
  - [Vue.Js](https://vuejs.org/);
+ - [Vue Router](https://router.vuejs.org/);
  - [Jest](https://jestjs.io/pt-BR/);
  - [Sass](https://sass-lang.com/);
  - [Testing Library](https://testing-library.com/);
