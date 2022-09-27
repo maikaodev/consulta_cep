@@ -7,14 +7,31 @@
   * [Linkedin](#Linkedin)
   * [Aprendizado](#Aprendizado)
   * [Tecnologias](#Tecnologias)
-  * [Como usar](#Como-usar)
+  * [Pré-requisitos](#Pré-requisitos)
 
 
-# Como-usar
+### Pré-requisitos
 
- <p>
- O site tem um input onde você digita seu CEP e ele trás os principais dados. É possível passar a mesma informação através da URL adicionando após / ?cep=57015040
-</p>
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [git](https://git-scm.com/), [Node.js](https://nodejs.org/en/).
+Além disso é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
+
+### Rodando o Front End
+
+´´´bash
+# Clone este repositório
+$ git clone <https://github.com/maikaodev/consulta_cep.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd consulta_cep
+
+# Instalar as dependências
+$ yarn install
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn dev
+
+# E o servidor iniciará: - acesse <http://127.0.0.1:5173/>
+´´´
 
 # Deploy
 
@@ -37,10 +54,11 @@ https://www.linkedin.com/in/maikaodev/
 
  # Tecnologias
  
- - Vite;
- - Vuejs 3;
- - Jest;
- - Sass;
- - Testing Library;
- - Cypress;
+ - [Vite](https://vitejs.dev/);
+ - [Vitest](https://vitest.dev/)
+ - [Vue.Js](https://vuejs.org/)
+ - [Jest](https://jestjs.io/pt-BR/);
+ - [Sass](https://sass-lang.com/);
+ - [Testing Library](https://testing-library.com/);
+ - [Cypress](https://www.cypress.io/);
 
