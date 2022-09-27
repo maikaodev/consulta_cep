@@ -1,7 +1,7 @@
 <template>
   <main class="container">
-    <Modal v-show="mostrarModal"> {{ error }} </Modal>
-    <Loading v-show="loading"></Loading>
+    <Modal v-show="mostrarModal" data-testid="modal"> {{ error }} </Modal>
+    <Loading v-show="loading" data-testid="loading"></Loading>
     <section class="container__content">
       <form data-testid="form" @submit.prevent class="container__form">
         <label>
@@ -26,20 +26,27 @@
         </label>
       </form>
       <section v-show="mostrar" class="container__result">
-        <ul v-for="data in data" class="container__result__list">
-          <li class="container__result__list__item">
+        <ul
+          v-for="data in data"
+          class="container__result__list"
+          data-testid="result-list"
+        >
+          <li class="container__result__list__item" data-testid="result-cep">
             CEP:
             <span>{{ data.cep }}</span>
           </li>
-          <li class="container__result__list__item">
+          <li class="container__result__list__item" data-testid="result-estado">
             Estado:
             <span>{{ data.uf }}</span>
           </li>
-          <li class="container__result__list__item">
+          <li class="container__result__list__item" data-testid="result-cidade">
             Cidade:
             <span>{{ data.localidade }}</span>
           </li>
-          <li class="container__result__list__item">
+          <li
+            class="container__result__list__item"
+            data-testid="result-logradouro"
+          >
             Logradouro:
             <span>{{ data.logradouro }} </span>
           </li>

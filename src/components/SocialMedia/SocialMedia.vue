@@ -3,12 +3,20 @@
     <nav>
       <ul>
         <li>
-          <a href="https://www.linkedin.com/in/maikaodev/" target="_blank">
+          <a
+            data-testid="linkedin-maikaodev"
+            href="https://www.linkedin.com/in/maikaodev/"
+            target="_blank"
+          >
             <font-awesome-icon class="icon" icon="fa-brands fa-linkedin" />
           </a>
         </li>
         <li>
-          <a href="https://github.com/maikaodev" target="_blank">
+          <a
+            data-testid="github-maikaodev"
+            href="https://github.com/maikaodev"
+            target="_blank"
+          >
             <font-awesome-icon class="icon" icon="fa-brands fa-square-github" />
           </a>
         </li>
