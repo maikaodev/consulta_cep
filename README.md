@@ -1,13 +1,38 @@
-## Melhorias
+## Consulta CEP
 
-- [ ] - Breakpoints;
-- [x] - Validar para não mostrar os dados caso o CEP seja inválido;
-- [x] - Tratar os erros;
-- [x] - Criar modal para CEP menor que 8;
-- [x] - Criar componente para o erro 406;
-- [x] - Criar loading para requisição;
-- [x] - Desabilitar o botão para evitar mais de uma requisição;
-- [x] - Adicionar efeito visual para quando for completando o cep - ;
-- [x] - Retirar a entrada de 'e' '+' '-' do input;
-- [ ] - Adicionar e salvar o cep pela URL;
-- [ ] - Testes unitários.
+## Menu
+
+  *[Descrição](#Descrição)
+  *[Deploy](#Deploy)
+  *[Linkedin](#Linkedin)
+  *[Aprendizado](#Aprendizado)
+  *[Tecnologias](#Tecnologias)
+
+# Deploy
+
+https://maikaodev-consulta-cep.netlify.app/
+
+# Linkedin
+
+https://www.linkedin.com/in/maikaodev/
+
+# Descrição
+
+- Projeto criado para consulta de endereço através do CEP. 
+
+# Aprendizados 
+
+ - Metodologia BEM para organizar classes;
+ - Aprimoramento do Sass;
+ - vue-the-mask: Utilizado nos inputs para dar um efeito visua. Ex.: telefones, cep, CPF;
+ - Criar uma API a partir de outra [API](https://github.com/maikaodev/_api_consulta_cep).
+
+ # Tecnologias
+ 
+ - Vite;
+ - Vuejs 3;
+ - Jest;
+ - Sass;
+ - Testing Library;
+ - Cypress;
+
