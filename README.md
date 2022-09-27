@@ -8,7 +8,7 @@
   * [Aprendizado](#Aprendizado)
   * [Tecnologias](#Tecnologias)
   * [Pré-requisitos](#Pré-requisitos)
-  * [Rodando o Front End](#Rodando o Front End)
+  * [Rodando o Front End](#rodando-o-front-end)
 
 
 ### Pré-requisitos
