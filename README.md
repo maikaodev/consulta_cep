@@ -2,11 +2,11 @@
 
 ## Menu
 
-  *[Descrição](#Descrição)
-  *[Deploy](#Deploy)
-  *[Linkedin](#Linkedin)
-  *[Aprendizado](#Aprendizado)
-  *[Tecnologias](#Tecnologias)
+  * [Descrição](#Descrição)
+  * [Deploy](#Deploy)
+  * [Linkedin](#Linkedin)
+  * [Aprendizado](#Aprendizado)
+  * [Tecnologias](#Tecnologias)
 
 # Deploy
 
