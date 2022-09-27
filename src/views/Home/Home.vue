@@ -19,7 +19,7 @@
           <button
             class="container__form__submit"
             data-testid="submit"
-            @click="getCEP()"
+            @click="GetTheAddress()"
           >
             Buscar CEP
           </button>
@@ -83,7 +83,7 @@ export default {
     };
   },
   methods: {
-    async getCEP() {
+    async GetTheAddress() {
       /**
        * Retiro o - do cep e pego somente os números.
        */
@@ -162,7 +162,7 @@ export default {
       const paramCep = this.$router.currentRoute.value.query.cep;
       if (paramCep) {
         this.cep = paramCep;
-        this.getCEP();
+        this.GetTheAddress();
       }
     },
   },
