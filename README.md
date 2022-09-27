@@ -5,7 +5,7 @@
   * [Descrição](#Descrição)
   * [Deploy](#Deploy)
   * [Linkedin](#Linkedin)
-  * [Aprendizado](#Aprendizado)
+  * [Aprendizados](#Aprendizados)
   * [Tecnologias](#Tecnologias)
   * [Pré-requisitos](#Pré-requisitos)
   * [Rodando o Front End](#rodando-o-front-end)
