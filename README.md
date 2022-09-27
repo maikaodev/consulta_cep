@@ -13,7 +13,7 @@
 
 ### Pré-requisitos
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [git](https://git-scm.com/), [Node.js](https://nodejs.org/en/).
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/).
 Além disso é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
 ### Rodando o Front End
@@ -34,30 +34,29 @@ $ yarn dev
 # E o servidor iniciará: - acesse <http://127.0.0.1:5173/>
 ```
 
-# Deploy
-
+### Deploy
 https://maikaodev-consulta-cep.netlify.app/
 
-# Linkedin
+### Linkedin
 
 https://www.linkedin.com/in/maikaodev/
 
-# Descrição
+### Descrição
 
 - Projeto criado para consulta de endereço através do CEP. 
 
-# Aprendizados 
+### Aprendizados 
 
  - Metodologia BEM para organizar classes;
  - Aprimoramento do Sass;
  - vue-the-mask: Utilizado nos inputs para dar um efeito visua. Ex.: telefones, cep, CPF;
  - Criar uma API a partir de outra [API](https://github.com/maikaodev/_api_consulta_cep).
 
- # Tecnologias
+### Tecnologias
  
  - [Vite](https://vitejs.dev/);
- - [Vitest](https://vitest.dev/)
- - [Vue.Js](https://vuejs.org/)
+ - [Vitest](https://vitest.dev/);
+ - [Vue.Js](https://vuejs.org/);
  - [Jest](https://jestjs.io/pt-BR/);
  - [Sass](https://sass-lang.com/);
  - [Testing Library](https://testing-library.com/);
