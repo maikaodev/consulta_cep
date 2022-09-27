@@ -7,6 +7,16 @@
   * [Linkedin](#Linkedin)
   * [Aprendizado](#Aprendizado)
   * [Tecnologias](#Tecnologias)
+  * [Como usar](#Como usar)
+
+
+
+
+# Como usar
+
+ <p>
+ O site tem um input onde você digita seu CEP e ele trás os principais dados. É possível passar a mesma informação através da URL adicionando após / ?cep=57015040
+</p>
 
 # Deploy
 
