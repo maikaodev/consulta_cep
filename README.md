@@ -50,7 +50,7 @@ https://www.linkedin.com/in/maikaodev/
  - Metodologia BEM para organizar classes;
  - Aprimoramento do Sass;
  - vue-the-mask: Utilizado nos inputs para dar um efeito visua. Ex.: telefones, cep, CPF;
- - Criar uma API a partir de outra [API](https://github.com/maikaodev/_api_consulta_cep).
+ - Criar uma [API](https://github.com/maikaodev/_api_consulta_cep) a partir de outra API.
 
 ### Tecnologias
  
