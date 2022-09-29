@@ -43,14 +43,14 @@ https://www.linkedin.com/in/maikaodev/
 
 ### Descrição
 
-- Projeto criado para consultar de endereço através do CEP. 
+- Projeto criado para consultar o endereço através do CEP. 
 
 ### Aprendizados 
 
  - Metodologia BEM para organizar classes;
  - Aprimoramento do Sass;
- - vue-the-mask: Utilizado nos inputs para dar um efeito visua. Ex.: telefones, cep, CPF;
- - Criar uma [API](https://github.com/maikaodev/_api_consulta_cep) a partir de outra API.
+ - vue-the-mask: Utilizado nos inputs para dar um efeito visual. Ex.: telefones, cep, CPF;
+ - Criar uma [API](https://github.com/maikaodev/consulta_cep_api) a partir de outra API.
 
 ### Tecnologias
  
