@@ -43,7 +43,7 @@ https://www.linkedin.com/in/maikaodev/
 
 ### Descrição
 
-- Projeto criado para consultar o endereço através do CEP. 
+- Projeto desenvolvido para consultar endereço através do CEP. O CEP pesquisado fica armazenado na URL como query params, facilitando em casos de recarregar a página.
 
 ### Aprendizados 
 
