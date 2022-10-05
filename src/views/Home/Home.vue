@@ -119,7 +119,7 @@ export default {
       //Salvando o cep na rota
       this.$router.push({ path: "", query: { cep: this._cep } });
 
-      const url = `https://api-consulta-cep.herokuapp.com/cep/${this._cep}`;
+      const url = `https://api-consulta-cep.herokuapp.com/v1/cep/${this._cep}`;
       /**
        * Pegando os dados e fazendo a requisição através do Fetch, função do próprio JavaScript.
        * 1° Verifico o status da requisição.
