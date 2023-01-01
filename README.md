@@ -1,5 +1,9 @@
 ## Consulta CEP
 
+🚧 API está offline, logo sua pesquisa pelo CEP não funcionará. Site de hospedagem não tem mais serviço gratuito 🚧
+
+Mas por enquanto pode usar o [Encontre seu endereço](https://encontreseuendereco.netlify.app/) - [Repositório](https://github.com/maikaodev/zipcode)
+
 ## Menu
 
   * [Descrição](#Descrição)
